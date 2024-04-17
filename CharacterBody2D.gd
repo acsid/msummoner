@@ -44,6 +44,8 @@ func _physics_process(delta):
 		move_and_slide()
 
 func _process(delta):
+	if mana < 1 && manabottle > 0:
+		drinkMana()
 	if mana < 1 && manabottle < 1:
 		Game.endgame(fish,money,level,manabottle,1,"Died from mana starving")
 	if velocity.x != 0:
