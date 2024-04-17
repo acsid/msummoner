@@ -5,7 +5,7 @@ var cast = 0
 var casting = true
 var castTime = 100
 var castMulti = 1
-@export var casttype = preload("res://summon.tscn")
+@export var casttype = preload("res://summon/summon.tscn")
 
 var castwhat = 1
 # Called when the node enters the scene tree for the first time.

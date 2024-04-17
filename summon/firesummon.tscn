@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b8kurvksxhswv"]
 
-[ext_resource type="Script" path="res://summon.gd" id="1_dmw4b"]
+[ext_resource type="Script" path="res://summon/summon.gd" id="1_dmw4b"]
 [ext_resource type="Texture2D" uid="uid://c1yo7jpqqusi6" path="res://images/boat.png" id="2_yu4pj"]
 [ext_resource type="Texture2D" uid="uid://cged6lx7kwp2w" path="res://images/summon-2.png" id="3_dyani"]
 [ext_resource type="Texture2D" uid="uid://8mp5hs4is6cn" path="res://images/summon-3.png" id="4_xuq1e"]
