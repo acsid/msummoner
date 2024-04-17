@@ -12,8 +12,8 @@ func _ready():
 func addinfo(text = ""):
 	print(text)
 	$info.visible = true
-	$info/Panel/RichTextLabel.newline()
-	$info/Panel/RichTextLabel.text += "\n" + text 
+	#$info/Panel/RichTextLabel.newline()
+	%infoLog.text += "\n" + text 
 	$Hideinfo.start(15)
 	
 

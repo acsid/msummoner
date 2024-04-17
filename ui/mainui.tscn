@@ -176,9 +176,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -370.0
+offset_left = -384.0
 offset_top = -317.0
-offset_bottom = -74.0
+offset_right = -8.0
+offset_bottom = -84.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -187,17 +188,13 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="info/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -177.0
-offset_top = -120.5
-offset_right = 179.0
-offset_bottom = 121.5
+[node name="infoLog" type="RichTextLabel" parent="info/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_bottom = 0.828
+offset_left = -188.0
+offset_right = 188.0
+offset_bottom = 40.076
 grow_horizontal = 2
 grow_vertical = 2
 text = "Generating Lake..."
