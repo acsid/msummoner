@@ -20,14 +20,12 @@ var spawn = false
 var cooldown_time = 2
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 var cast = 0
-
 var castui = preload("res://cast.tscn")
+
+
 func _ready():
-	print("player ready")
 	pass
-	#position.x -= lake.lastchunk -1024
 
 func _physics_process(delta):
 	# Add the gravity.
