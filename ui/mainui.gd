@@ -23,12 +23,12 @@ func _process(delta):
 		$Hideinfo.start(15)
 
 func refresh(player):
-		$Container/Mana_text.text = str(player.manabottle)
-		$Container/Money_text.text = str(player.money)
-		$Container/Fish_text.text = str(player.fish)
-		$Container/ManaBar.value = player.mana
-		$Container/ManaBar.max_value = player.maxmana
-		$Container/Level_label.text = "Level: " + str(player.level)
+		%Mana_text.text = str(player.manabottle)
+		%Money_text.text = str(player.money)
+		%Fish_text.text = str(player.fish)
+		%ManaBar.value = player.mana
+		%ManaBar.max_value = player.maxmana
+		%Level_label.text = "Level: " + str(player.level)
 		if player.level > 1 :
 			$Container/Level2.visible = true
 

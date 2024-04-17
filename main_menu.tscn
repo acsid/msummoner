@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_brsxd"]
 [ext_resource type="Texture2D" uid="uid://lihptbc7qqpv" path="res://images/splash.png" id="2_vcdj2"]
-[ext_resource type="AudioStream" uid="uid://dah8i73l1o4fu" path="res://mainloop1.wav" id="3_geyej"]
+[ext_resource type="AudioStream" uid="uid://dah8i73l1o4fu" path="res://sounds/mainloop1.wav" id="3_geyej"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -44,6 +44,11 @@ text = "Start Game"
 [node name="Lake2" type="Button" parent="Container/VBoxContainer"]
 layout_mode = 2
 text = "Start Hard Game (lvl 5)"
+
+[node name="Label" type="Label" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Version 1.1"
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_geyej")

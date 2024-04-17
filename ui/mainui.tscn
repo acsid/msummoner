@@ -20,50 +20,97 @@ offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Mana_sprite" type="Sprite2D" parent="Container"]
-position = Vector2(28, 40)
-texture = ExtResource("1_c0i80")
-
-[node name="Money_sprite" type="Sprite2D" parent="Container"]
-position = Vector2(72, 57)
-texture = ExtResource("2_ptf0i")
-
-[node name="Money_text" type="RichTextLabel" parent="Container"]
+[node name="Panel" type="Panel" parent="Container"]
 layout_mode = 0
-offset_left = 93.0
-offset_top = 45.0
-offset_right = 152.0
-offset_bottom = 85.0
-text = "0"
+offset_right = 192.0
+offset_bottom = 120.0
 
-[node name="Fish_sprite" type="Sprite2D" parent="Container"]
-position = Vector2(72, 26)
-texture = ExtResource("3_l24rn")
-
-[node name="Fish_text" type="RichTextLabel" parent="Container"]
+[node name="Panel" type="Panel" parent="Container/Panel"]
 layout_mode = 0
-offset_left = 93.0
-offset_top = 14.0
-offset_right = 133.0
-offset_bottom = 54.0
-text = "0"
-
-[node name="ManaBar" type="ProgressBar" parent="Container"]
-layout_mode = 0
-offset_left = 7.0
+offset_left = 8.0
 offset_top = 8.0
-offset_right = 50.0
-offset_bottom = 71.0
+offset_right = 72.0
+offset_bottom = 104.0
+
+[node name="ManaBar" type="ProgressBar" parent="Container/Panel/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 76.0
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="Mana_text" type="RichTextLabel" parent="Container"]
-offset_left = 6.0
-offset_top = 5.0
+[node name="Mana_text" type="Label" parent="Container/Panel/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 8.0
+offset_top = 72.0
 offset_right = 56.0
-offset_bottom = 45.0
+offset_bottom = 96.0
 text = "0"
+horizontal_alignment = 1
+
+[node name="Mana_image" type="TextureRect" parent="Container/Panel/Panel"]
+layout_mode = 2
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 72.0
+texture = ExtResource("1_c0i80")
+
+[node name="Panel2" type="Panel" parent="Container/Panel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 48.0
+
+[node name="Fish_text" type="Label" parent="Container/Panel/Panel2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 96.0
+offset_bottom = 30.0
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="Container/Panel/Panel2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_l24rn")
+
+[node name="Panel3" type="Panel" parent="Container/Panel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 56.0
+offset_right = 184.0
+offset_bottom = 96.0
+
+[node name="Money_text" type="RichTextLabel" parent="Container/Panel/Panel3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 102.0
+offset_bottom = 32.0
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="Container/Panel/Panel3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ptf0i")
+
+[node name="Level_label" type="Label" parent="Container/Panel/Panel3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 40.0
+offset_right = 104.0
+offset_bottom = 64.0
+text = "Level:"
 
 [node name="Level1" type="Panel" parent="Container"]
 layout_mode = 1
@@ -122,14 +169,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_ynpu3")
-
-[node name="Level_label" type="RichTextLabel" parent="Container"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 71.0
-offset_right = 136.0
-offset_bottom = 111.0
-text = "Level:"
 
 [node name="info" type="PanelContainer" parent="."]
 anchors_preset = 6
