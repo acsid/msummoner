@@ -1,0 +1,155 @@
+[gd_scene load_steps=27 format=3 uid="uid://bbuqmutwydmi6"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_yyvm7"]
+[ext_resource type="Texture2D" uid="uid://lmctc3nalb4f" path="res://images/mana.png" id="3_1nggr"]
+[ext_resource type="Texture2D" uid="uid://cqq7jyduiwgeo" path="res://images/boat1.png" id="3_wlvqp"]
+[ext_resource type="Texture2D" uid="uid://2f40ogxwt4iq" path="res://images/boat2.png" id="4_osa25"]
+[ext_resource type="Texture2D" uid="uid://b21etqeaqvauv" path="res://images/boat3.png" id="5_ygak6"]
+[ext_resource type="Texture2D" uid="uid://cumctgyemk3fp" path="res://images/boat4.png" id="6_5wa4c"]
+[ext_resource type="Texture2D" uid="uid://dmll1nxo01rpb" path="res://images/boat5.png" id="7_bo46w"]
+[ext_resource type="Texture2D" uid="uid://ccukl5oftg0tu" path="res://images/boat6.png" id="8_wbrrh"]
+[ext_resource type="Texture2D" uid="uid://b44b6123jby44" path="res://images/boat-running1.png" id="9_akcs4"]
+[ext_resource type="Texture2D" uid="uid://cr0p3ut4ds1i" path="res://images/boat-running2.png" id="10_bgypy"]
+[ext_resource type="Texture2D" uid="uid://b30hfayv1jyde" path="res://images/boat-running3.png" id="11_1bowm"]
+[ext_resource type="Texture2D" uid="uid://blbnloalsgtyc" path="res://images/boat-running4.png" id="12_ybycw"]
+[ext_resource type="Texture2D" uid="uid://de1mgtbtxyijf" path="res://images/boat-running5.png" id="13_0lgkb"]
+[ext_resource type="Texture2D" uid="uid://57rg2f71nqvf" path="res://images/boat-running6.png" id="14_lnd8b"]
+[ext_resource type="Texture2D" uid="uid://ib2iqg0ks2yn" path="res://images/boat-summon1.png" id="15_c3jqv"]
+[ext_resource type="AudioStream" uid="uid://3dntsvoo24lc" path="res://sounds/levelup.wav" id="15_dku13"]
+[ext_resource type="Texture2D" uid="uid://bxruvle4fuspi" path="res://images/boat-summon2.png" id="16_1sv0t"]
+[ext_resource type="Texture2D" uid="uid://cqpwbl2smara8" path="res://images/boat-summon3.png" id="17_d0hua"]
+[ext_resource type="Texture2D" uid="uid://defa42hmureay" path="res://images/boat-summon4.png" id="18_b17iw"]
+[ext_resource type="Texture2D" uid="uid://d25hfj34mrlj4" path="res://images/boat-summon5.png" id="19_qb7sa"]
+[ext_resource type="Texture2D" uid="uid://c7as1kfrtbi3o" path="res://images/boat-summon6.png" id="20_gqu7b"]
+[ext_resource type="AudioStream" uid="uid://dx0u4pijamp5d" path="res://sounds/Pickup_coin 53.wav" id="21_cftpe"]
+[ext_resource type="AudioStream" uid="uid://djlxhtjn1t7me" path="res://sounds/pick.wav" id="22_s7223"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8phk"]
+radius = 21.0
+height = 118.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgpc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wlvqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_osa25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ygak6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wa4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bo46w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wbrrh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_akcs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bgypy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1bowm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ybycw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0lgkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lnd8b")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_c3jqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1sv0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_d0hua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_b17iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_qb7sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gqu7b")
+}],
+"loop": true,
+"name": &"summon",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cmjl"]
+size = Vector2(408, 162)
+
+[node name="boat" type="CharacterBody2D"]
+floor_stop_on_slope = false
+script = ExtResource("1_yyvm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_l8phk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -32)
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_smoothed = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-5, -69)
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Mana" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-52, -34)
+rotation = 2.13105
+texture = ExtResource("3_1nggr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jgpc7")
+animation = &"summon"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -14)
+shape = SubResource("RectangleShape2D_5cmjl")
+
+[node name="money_snd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_cftpe")
+
+[node name="levelup_snd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_dku13")
+
+[node name="pickup_snd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_s7223")
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

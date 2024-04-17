@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dns2las7e7jtr"]
+
+[ext_resource type="Texture2D" uid="uid://cvi7twuwj1x5g" path="res://images/sf-sponsor.png" id="1_eajms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te034"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_eajms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_te034")

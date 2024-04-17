@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ofpfiwljqe0n"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.474
+anchor_right = 0.5
+anchor_bottom = 0.474
+offset_left = -23.0
+offset_top = -0.152039
+offset_right = 23.0
+offset_bottom = 33.848
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.435
+anchor_top = -1.529
+anchor_right = 2.761
+anchor_bottom = -0.941
+offset_left = 0.0100098
+offset_top = -0.0139999
+offset_right = -0.00601196
+offset_bottom = 19.994
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Panel"]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 72.0
+text = "You need 100 Bottles of Mana"

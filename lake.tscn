@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://bl8jwla7abi5q"]
+
+[ext_resource type="Texture2D" uid="uid://cl3otjellarix" path="res://images/dock.png" id="1_fbha2"]
+[ext_resource type="Script" path="res://lake.gd" id="1_iy0a0"]
+[ext_resource type="PackedScene" uid="uid://dwfakakjci50g" path="res://ui/sell.tscn" id="3_du4v1"]
+[ext_resource type="PackedScene" uid="uid://dtcm4uctxqvrr" path="res://ui/buy.tscn" id="4_no00b"]
+[ext_resource type="PackedScene" uid="uid://dcvtxds1g45fb" path="res://summon/lakemap.tscn" id="5_eavca"]
+[ext_resource type="PackedScene" uid="uid://dns2las7e7jtr" path="res://sf_sponsor.tscn" id="6_gq44f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2fy2"]
+size = Vector2(110, 162)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crv33"]
+size = Vector2(95, 125)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8fxs4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_recuh"]
+size = Vector2(226, 476)
+
+[node name="Lake" type="Node2D"]
+position = Vector2(-320, 174)
+script = ExtResource("1_iy0a0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(572, 241)
+texture = ExtResource("1_fbha2")
+
+[node name="dock" type="Area2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dock"]
+position = Vector2(428, 196)
+shape = SubResource("RectangleShape2D_b2fy2")
+
+[node name="buymana" type="Area2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buymana"]
+position = Vector2(670, 216)
+shape = SubResource("RectangleShape2D_crv33")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(13, 2)
+physics_material_override = SubResource("PhysicsMaterial_8fxs4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(196, 188)
+shape = SubResource("RectangleShape2D_recuh")
+
+[node name="Sell" parent="." instance=ExtResource("3_du4v1")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 319.0
+offset_top = 153.0
+offset_right = 533.0
+offset_bottom = 214.0
+
+[node name="buy" parent="." instance=ExtResource("4_no00b")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 541.0
+offset_top = 152.0
+offset_right = 771.0
+offset_bottom = 212.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="spawn_obj" type="Marker2D" parent="."]
+position = Vector2(535, 159)
+
+[node name="lakemap" parent="." instance=ExtResource("5_eavca")]
+
+[node name="Elapsed" type="Timer" parent="."]
+autostart = true
+
+[node name="Spawn_player" type="Marker2D" parent="."]
+position = Vector2(819, 266)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("6_gq44f")]
+z_index = 1
+position = Vector2(963, 431)
+
+[connection signal="body_entered" from="dock" to="." method="_on_dock_body_entered"]
+[connection signal="body_exited" from="dock" to="." method="_on_dock_body_exited"]
+[connection signal="body_entered" from="buymana" to="." method="_on_buymana_body_entered"]
+[connection signal="body_exited" from="buymana" to="." method="_on_buymana_body_exited"]
+[connection signal="timeout" from="Elapsed" to="." method="_on_elapsed_timeout"]

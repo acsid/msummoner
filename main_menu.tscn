@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbuxibi4087e3"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_brsxd"]
+[ext_resource type="Texture2D" uid="uid://lihptbc7qqpv" path="res://images/splash.png" id="2_vcdj2"]
+[ext_resource type="AudioStream" uid="uid://dah8i73l1o4fu" path="res://mainloop1.wav" id="3_geyej"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_brsxd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_vcdj2")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.397
+anchor_top = 0.5
+anchor_right = 0.623
+anchor_bottom = 0.62
+offset_left = 358.656
+offset_top = 184.0
+offset_right = 384.304
+offset_bottom = 181.24
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Lake2" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Start Hard Game (lvl 5)"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_geyej")
+autoplay = true
+
+[connection signal="pressed" from="Container/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Lake2" to="." method="_on_lake_2_pressed"]

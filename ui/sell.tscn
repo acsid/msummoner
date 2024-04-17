@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwfakakjci50g"]
+
+[ext_resource type="Script" path="res://ui/sell.gd" id="1_4j23l"]
+
+[node name="Sell" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4j23l")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 216.0
+offset_bottom = 58.0
+text = "Press Space to sell fish"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://yournnrgfi2e"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_rbtks"]
+[ext_resource type="PackedScene" uid="uid://cqhr13yn5fkci" path="res://ui/mainui.tscn" id="2_o5r3l"]
+[ext_resource type="PackedScene" uid="uid://bl8jwla7abi5q" path="res://lake.tscn" id="3_rowog"]
+[ext_resource type="Texture2D" uid="uid://c4qp8a75p3a7k" path="res://images/background.png" id="7_3miou"]
+[ext_resource type="Texture2D" uid="uid://c6riwtyh7d1uy" path="res://images/background2.png" id="8_8o4td"]
+[ext_resource type="PackedScene" uid="uid://dns2las7e7jtr" path="res://sf_sponsor.tscn" id="9_tcxxl"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_rbtks")
+
+[node name="mainui" parent="." instance=ExtResource("2_o5r3l")]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("9_tcxxl")]
+position = Vector2(706, 403)
+
+[node name="Lake" parent="." instance=ExtResource("3_rowog")]
+position = Vector2(-317, 56)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(256, 256)
+texture = ExtResource("7_3miou")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1280, 256)
+texture = ExtResource("7_3miou")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
+position = Vector2(261, 256)
+texture = ExtResource("8_8o4td")

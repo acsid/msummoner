@@ -1,0 +1,169 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqhr13yn5fkci"]
+
+[ext_resource type="Texture2D" uid="uid://lmctc3nalb4f" path="res://images/mana.png" id="1_c0i80"]
+[ext_resource type="Script" path="res://ui/mainui.gd" id="1_ixmbp"]
+[ext_resource type="Texture2D" uid="uid://ck7xy4ew7fcog" path="res://images/coins.png" id="2_ptf0i"]
+[ext_resource type="Texture2D" uid="uid://ptsscww1xvpn" path="res://images/fish2.png" id="3_l24rn"]
+[ext_resource type="Texture2D" uid="uid://b75tonlvbgacs" path="res://images/summon1-icon.png" id="5_c8ehb"]
+[ext_resource type="Texture2D" uid="uid://lblmr4wetwwt" path="res://images/summon1-icon2.png" id="6_ynpu3"]
+
+[node name="mainui" type="CanvasLayer"]
+script = ExtResource("1_ixmbp")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mana_sprite" type="Sprite2D" parent="Container"]
+position = Vector2(28, 40)
+texture = ExtResource("1_c0i80")
+
+[node name="Money_sprite" type="Sprite2D" parent="Container"]
+position = Vector2(72, 57)
+texture = ExtResource("2_ptf0i")
+
+[node name="Money_text" type="RichTextLabel" parent="Container"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 45.0
+offset_right = 152.0
+offset_bottom = 85.0
+text = "0"
+
+[node name="Fish_sprite" type="Sprite2D" parent="Container"]
+position = Vector2(72, 26)
+texture = ExtResource("3_l24rn")
+
+[node name="Fish_text" type="RichTextLabel" parent="Container"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 14.0
+offset_right = 133.0
+offset_bottom = 54.0
+text = "0"
+
+[node name="ManaBar" type="ProgressBar" parent="Container"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 71.0
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Mana_text" type="RichTextLabel" parent="Container"]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 56.0
+offset_bottom = 45.0
+text = "0"
+
+[node name="Level1" type="Panel" parent="Container"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 341.0
+offset_top = 583.0
+offset_right = 410.0
+offset_bottom = 643.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Container/Level1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "1"
+
+[node name="TextureRect" type="TextureRect" parent="Container/Level1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_c8ehb")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Container/Level1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Level2" type="Panel" parent="Container"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 418.0
+offset_top = 583.0
+offset_right = 487.0
+offset_bottom = 643.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Container/Level2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "2"
+
+[node name="TextureRect" type="TextureRect" parent="Container/Level2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_ynpu3")
+
+[node name="Level_label" type="RichTextLabel" parent="Container"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 71.0
+offset_right = 136.0
+offset_bottom = 111.0
+text = "Level:"
+
+[node name="info" type="PanelContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -317.0
+offset_bottom = -74.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="info"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="info/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -120.5
+offset_right = 179.0
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Generating Lake..."
+scroll_following = true
+
+[node name="Hideinfo" type="Timer" parent="."]
+
+[connection signal="timeout" from="Hideinfo" to="." method="_on_hideinfo_timeout"]

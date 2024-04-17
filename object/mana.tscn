@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1wge5wl1jq6m"]
+
+[ext_resource type="Script" path="res://object/mana.gd" id="1_sa8qt"]
+[ext_resource type="Texture2D" uid="uid://lmctc3nalb4f" path="res://images/mana.png" id="2_582jf"]
+[ext_resource type="AudioStream" uid="uid://bopniqsjifr5j" path="res://sounds/pickup.wav" id="3_dr214"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjq27"]
+radius = 16.0
+height = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xcqkk"]
+radius = 35.3836
+
+[node name="Mana" type="RigidBody2D"]
+collision_layer = 2
+script = ExtResource("1_sa8qt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vjq27")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_582jf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xcqkk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dr214")
+autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

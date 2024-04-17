@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://dsr1ov0l6s1ww"]
+
+[ext_resource type="Script" path="res://summon.gd" id="1_inhnr"]
+[ext_resource type="Texture2D" uid="uid://bk5v8m5cs7ph" path="res://images/summon1.png" id="2_37q2y"]
+[ext_resource type="Texture2D" uid="uid://c0bt05p5htbgb" path="res://images/summon2.png" id="3_xy2j8"]
+[ext_resource type="Texture2D" uid="uid://dndiby84yayd6" path="res://images/summon3.png" id="4_bilvu"]
+[ext_resource type="Texture2D" uid="uid://bschlbxp0f4b8" path="res://images/summon4.png" id="5_aqrft"]
+[ext_resource type="Texture2D" uid="uid://dhd3tlvtcbt3n" path="res://images/summon5.png" id="6_y8er8"]
+[ext_resource type="Texture2D" uid="uid://dh80estn6lgjh" path="res://images/summon6.png" id="7_8326u"]
+[ext_resource type="AudioStream" uid="uid://6t0rba3w3kgq" path="res://sounds/normalspawn.wav" id="8_f3yub"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uovm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_37q2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_37q2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xy2j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bilvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aqrft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y8er8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8326u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aqrft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y8er8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8326u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_37q2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xy2j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bilvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aqrft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y8er8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8326u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_37q2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xy2j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bilvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_37q2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xy2j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bilvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aqrft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y8er8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8326u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhrju"]
+size = Vector2(261, 193)
+
+[node name="summon" type="Node2D" groups=["summon"]]
+script = ExtResource("1_inhnr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_37q2y")
+
+[node name="Fish" type="Timer" parent="."]
+autostart = true
+
+[node name="Despawn" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uovm4")
+frame_progress = 0.710252
+
+[node name="Area2D" type="Area2D" parent="." groups=["summon"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.5, -2.5)
+shape = SubResource("RectangleShape2D_vhrju")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_f3yub")
+autoplay = true
+bus = &"sfx"
+
+[connection signal="timeout" from="Fish" to="." method="_on_fish_timeout"]
+[connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]
