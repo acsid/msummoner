@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbuxibi4087e3"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_brsxd"]
-[ext_resource type="Texture2D" uid="uid://lihptbc7qqpv" path="res://images/splash.png" id="2_vcdj2"]
+[ext_resource type="Texture2D" uid="uid://cxd67160ujigd" path="res://images/splash2.png" id="2_iv7iw"]
 [ext_resource type="AudioStream" uid="uid://dah8i73l1o4fu" path="res://sounds/mainloop1.wav" id="3_geyej"]
 
 [node name="MainMenu" type="Control"]
@@ -17,7 +17,7 @@ script = ExtResource("1_brsxd")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_vcdj2")
+texture = ExtResource("2_iv7iw")
 
 [node name="Container" type="Container" parent="."]
 layout_mode = 1
@@ -47,12 +47,11 @@ text = "Start Hard Game (lvl 5)"
 
 [node name="Label" type="Label" parent="Container/VBoxContainer"]
 layout_mode = 2
-text = "Version 1.1"
+text = "Version DEV"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_geyej")
-autoplay = true
 
 [connection signal="pressed" from="Container/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Container/VBoxContainer/Lake2" to="." method="_on_lake_2_pressed"]

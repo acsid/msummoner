@@ -14,9 +14,9 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "boat":
-		print("goal reached")
+		#print("goal reached")
 		if get_tree().get_current_scene().get_node("boat").manabottle >= Game.bottleneed:
 			print("welcome to summoner fest")
-			Game.endgame(body.fish,body.money,body.level,1.2,body.manabottle,"You reach summoner Fest")
+			Game.endgame(body.fish,body.money,body.level,body.manabottle,1.2,"You reach summoner Fest")
 		else:
 			ui.addinfo("Come back when you have enough mana bottle!")

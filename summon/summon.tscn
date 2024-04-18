@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsr1ov0l6s1ww"]
+[gd_scene load_steps=18 format=3 uid="uid://dsr1ov0l6s1ww"]
 
 [ext_resource type="Script" path="res://summon/summon.gd" id="1_inhnr"]
 [ext_resource type="Texture2D" uid="uid://bk5v8m5cs7ph" path="res://images/summon1.png" id="2_37q2y"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dhd3tlvtcbt3n" path="res://images/summon5.png" id="6_y8er8"]
 [ext_resource type="Texture2D" uid="uid://dh80estn6lgjh" path="res://images/summon6.png" id="7_8326u"]
 [ext_resource type="AudioStream" uid="uid://6t0rba3w3kgq" path="res://sounds/normalspawn.wav" id="8_f3yub"]
+[ext_resource type="Texture2D" uid="uid://bq8yjpgkbb4dn" path="res://images/summon-boat1-1.png" id="9_5q6o3"]
+[ext_resource type="Texture2D" uid="uid://7dkmdk3jbjlp" path="res://images/summon-boat1-2.png" id="10_2skwc"]
+[ext_resource type="Texture2D" uid="uid://bu52hhunwtndu" path="res://images/summon-boat1-3.png" id="11_g3bra"]
+[ext_resource type="Texture2D" uid="uid://bqerm65xe2fxt" path="res://images/summon-boat1-4.png" id="12_8w3xs"]
+[ext_resource type="Texture2D" uid="uid://bjd2j8ik77d0y" path="res://images/summon-boat1-5.png" id="13_3t6no"]
+[ext_resource type="Texture2D" uid="uid://bgni3vy3sd8ep" path="res://images/summon-boat1-6.png" id="14_fyn4e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uovm4"]
 animations = [{
@@ -95,6 +101,41 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhrju"]
 size = Vector2(261, 193)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_xx7v0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_5q6o3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2skwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_g3bra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8w3xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3t6no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fyn4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3t6no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8w3xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_g3bra")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="summon" type="Node2D" groups=["summon"]]
 script = ExtResource("1_inhnr")
 
@@ -121,6 +162,10 @@ shape = SubResource("RectangleShape2D_vhrju")
 stream = ExtResource("8_f3yub")
 autoplay = true
 bus = &"sfx"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xx7v0")
+frame_progress = 0.610587
 
 [connection signal="timeout" from="Fish" to="." method="_on_fish_timeout"]
 [connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]

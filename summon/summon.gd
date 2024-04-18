@@ -16,7 +16,7 @@ func _ready():
 	$Despawn.start(expire)
 	$Fish.start(speed)
 	$AnimatedSprite2D.play("default")
-
+	$AnimatedSprite2D2.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,9 +26,9 @@ func _process(delta):
 
 func _on_fish_timeout():
 	var spawnfish = fish
-	print(firefishrate)
+	#print(firefishrate)
 	var firerate = randi_range(0,firefishrate)
-	print(firerate)
+	#print(firerate)
 	if firefisha != 0:
 		if  firerate == 1:
 			spawnfish = firefish
@@ -45,7 +45,7 @@ func _on_despawn_timeout():
 
 func _on_nospawn_body_entered(body):
 	if body.name == player.name:
-		print("test")
+		#print("test")
 		player.cansummon = false
 		
 

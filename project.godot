@@ -22,7 +22,7 @@ Game="*res://game.gd"
 
 [display]
 
-window/stretch/mode="viewport"
+window/size/resizable=false
 
 [input]
 
